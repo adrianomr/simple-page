@@ -18,60 +18,8 @@
 
 
 
-
-
+<script type="text/javascript" src="usuarios.json"></script>
 <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
-<script>
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyB-fj62WgmDC0p7BWTy90sVlroMu9syy2k",
-        authDomain: "fir-fast-start.firebaseapp.com",
-        databaseURL: "https://fir-fast-start.firebaseio.com",
-        projectId: "fir-fast-start",
-        storageBucket: "fir-fast-start.appspot.com",
-        messagingSenderId: "926723473603"
-    };
-    firebase.initializeApp(config);
-    var liAppDescription = document.getElementById('app-description');
-    var h3Users = document.getElementById('users');
-    var firebaseDB = firebase.database().ref().child('users');
-   // function writeUserData(userId, name, email, imageUrl) {
-    firebase.database().ref('users/' + 1).set({
-        username: 'Adriano',
-        email: 'email@email.com',
-        //profile_picture : imageUrl
-    });
-    firebase.database().ref('users/' + 2).set({
-        username: 'Medeiros',
-        email: 'email@email.com',
-        //profile_picture : imageUrl
-    });
-    firebase.database().ref('users/' + 3).set({
-        username: 'Jonas',
-        email: 'email@email.com',
-        //profile_picture : imageUrl
-    });
-    firebase.database().ref('users/' + 4).set({
-        username: 'Bruno',
-        email: 'email@email.com',
-        //profile_picture : imageUrl
-    });
-    //}
-    firebaseDB.on('value', changeFunction => {
-        //liAppDescription.innerText = changeFunction.val();
-        var users = changeFunction.val();
-        for(userId in users){
-            var user = users[userId];
-            console.log(user);
-            h3Users.innerHTML += user.username+'<br>';
-        }
-        console.log(changeFunction.val());
-    });
-    firebaseDB = firebase.database().ref().child('text');
-    firebaseDB.on('value', changeFunction => {
-        liAppDescription.innerText = changeFunction.val();
-        console.log(changeFunction.val());
-    });
-</script>
+<script src="./index.js"></script>
 </body>
 </html>
