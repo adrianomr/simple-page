@@ -20,10 +20,11 @@
     //pega um json criado manualmente para fazer carga no banco a partir dele
     var usersdata = JSON.parse(data);
     var usuarioID = 1;
-    //percorre os usurios salvos no json e adiciona eles no realtime database do firebase atraves do metodo set
+    //percorre os dados salvos no json e adiciona eles no realtime database do firebase atraves do metodo set
+    //coloca eles no objeto que esta sendo passado no JSON, assim, eh possivel cadastrar dados em qualquer objeto do banco via JSON
     for(usuarioID in usersdata){
         usuario = usersdata[usuarioID];
-        firebaseDB.ref('users/' + usuarioID).set({
+        firebaseDB.ref(usuario.table+'/' + usuarioID).set({
             username: usuario.name,
             email: usuario.email
             //profile_picture : imageUrl
